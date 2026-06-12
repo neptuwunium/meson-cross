@@ -2,9 +2,9 @@
 # SPDX-License-Identifier: CC0-1.0
 
 [binaries]
-c = 'clang'
+c = ['clang', '-target', 'x86_64-w64-mingw32-gnullvm']
 c_ld = 'lld'
-cpp = 'clang++'
+cpp = ['clang++', '-target', 'x86_64-w64-mingw32-gnullvm']
 cpp_ld = 'lld'
 ar = 'llvm-ar'
 strip = 'llvm-strip'
@@ -16,10 +16,10 @@ exe_wrapper = 'wine64'
 needs_exe_wrapper = true
 
 [built-in options]
-c_args = ['-target', 'x86_64-w64-mingw32-gnullvm', '-isysroot', '/usr/x86_64-w64-mingw32']
-cpp_args = ['-target', 'x86_64-w64-mingw32-gnullvm', '-isysroot', '/usr/x86_64-w64-mingw32']
-c_link_args = ['-target', 'x86_64-w64-mingw32-gnullvm']
-cpp_link_args = ['-target', 'x86_64-w64-mingw32-gnullvm']
+c_args = ['-isysroot', '/usr/x86_64-w64-mingw32']
+cpp_args = ['-isysroot', '/usr/x86_64-w64-mingw32']
+c_link_args = ['-static-libgcc']
+cpp_link_args = ['-static-libgcc', '-static-libstdc++']
 nasm_args = ['-f win64']
 
 [host_machine]
