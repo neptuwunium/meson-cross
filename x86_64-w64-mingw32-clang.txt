@@ -1,0 +1,29 @@
+# SPDX-FileCopyrightText: 2026 Neptuwunium
+# SPDX-License-Identifier: CC0-1.0
+
+[binaries]
+c = 'clang'
+c_ld = 'lld'
+cpp = 'clang++'
+cpp_ld = 'lld'
+ar = 'llvm-ar'
+strip = 'llvm-strip'
+windres = 'x86_64-w64-mingw32-windres'
+nasm = 'nasm'
+exe_wrapper = 'wine64'
+
+[properties]
+needs_exe_wrapper = true
+
+[built-in options]
+c_args = ['-target', 'x86_64-w64-mingw32-gnullvm', '-isysroot', '/usr/x86_64-w64-mingw32']
+cpp_args = ['-target', 'x86_64-w64-mingw32-gnullvm', '-isysroot', '/usr/x86_64-w64-mingw32']
+c_link_args = ['-target', 'x86_64-w64-mingw32-gnullvm']
+cpp_link_args = ['-target', 'x86_64-w64-mingw32-gnullvm']
+nasm_args = ['-f win64']
+
+[host_machine]
+system = 'windows'
+cpu_family = 'x86_64'
+cpu = 'x86_64'
+endian = 'little'

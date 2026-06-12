@@ -1,0 +1,27 @@
+# SPDX-FileCopyrightText: 2026 Neptuwunium
+# SPDX-License-Identifier: CC0-1.0
+
+[binaries]
+c = 'x86_64-w64-mingw32-gcc'
+c_ld = 'bfd'
+cpp = 'x86_64-w64-mingw32-g++'
+cpp_ld = 'bfd'
+ar = 'x86_64-w64-mingw32-ar'
+strip = 'x86_64-w64-mingw32-strip'
+windres = 'x86_64-w64-mingw32-windres'
+nasm = 'nasm'
+exe_wrapper = 'wine64'
+
+[properties]
+needs_exe_wrapper = true
+
+[built-in options]
+c_args = ['-static-libgcc']
+cpp_args = ['-static-libgcc', '-static-libstdc++']
+nasm_args = ['-f win64']
+
+[host_machine]
+system = 'windows'
+cpu_family = 'x86_64'
+cpu = 'x86_64'
+endian = 'little'
